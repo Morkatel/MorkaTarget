@@ -1,0 +1,58 @@
+<Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Frame.lua" />
+	<Frame name="MorkaTargetMain" inherits="BackdropTemplate" movable="true">
+		<Size x="314" y="135" />
+		<Anchors>
+			<Anchor x="350" y="-85" point="TOPLEFT" />
+		</Anchors>
+		<KeyValues>
+			<KeyValue key="backdropInfo" value="BACKDROP_DIALOG_32_32" keyType="string" type="global" />
+		</KeyValues>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="Label_MO_Race" inherits="GameFontNormal" text="Race">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor x="18" y="-46" point="TOPLEFT" />
+					</Anchors>
+				</FontString>
+				<FontString name="Label_MO_Class" inherits="GameFontNormal" text="Class">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor x="18" y="-73" point="TOPLEFT" />
+					</Anchors>
+				</FontString>
+				<FontString name="Text_MO_Race" inherits="GameFontNormal" text="---">
+					<Size x="189" y="20" />
+					<Anchors>
+						<Anchor x="105" y="-45" point="TOPLEFT" />
+					</Anchors>
+				</FontString>
+				<FontString name="Text_MO_Class" inherits="GameFontNormal" text="---">
+					<Size x="189" y="20" />
+					<Anchors>
+						<Anchor x="105" y="-73" point="TOPLEFT" />
+					</Anchors>
+				</FontString>
+				<FontString name="Text_Found_Name" inherits="GameFontNormal" text="---">
+					<Size x="189" y="20" />
+					<Anchors>
+						<Anchor x="105" y="-19" point="TOPLEFT" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad inherit="prepend">
+				self:RegisterForDrag("LeftButton")
+				MorkaTargetMain_OnLoad()
+			</OnLoad>
+			<OnDragStart>
+				self:StartMoving()
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing()
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>
