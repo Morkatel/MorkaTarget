@@ -1,9 +1,9 @@
 <Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="Frame.lua" />
 	<Frame name="MorkaTargetMain" inherits="BackdropTemplate" movable="true">
-		<Size x="314" y="135" />
+		<Size x="335" y="158" />
 		<Anchors>
-			<Anchor x="350" y="-85" point="TOPLEFT" />
+			<Anchor x="204" y="-163" point="TOPLEFT" />
 		</Anchors>
 		<KeyValues>
 			<KeyValue key="backdropInfo" value="BACKDROP_DIALOG_32_32" keyType="string" type="global" />
@@ -42,17 +42,25 @@
 				</FontString>
 			</Layer>
 		</Layers>
+		<Frames>
+			<Frame name="DropDownFrame" inherits="UIDropDownMenuTemplate">
+				<Size x="163" y="33" />
+				<Anchors>
+					<Anchor x="18" y="-99" point="TOPLEFT" />
+				</Anchors>
+			</Frame>
+		</Frames>
 		<Scripts>
 			<OnLoad inherit="prepend">
-				self:RegisterForDrag("LeftButton")
 				MorkaTargetMain_OnLoad()
+				self:RegisterForDrag("LeftButton")
 			</OnLoad>
-			<OnDragStart>
-				self:StartMoving()
-			</OnDragStart>
 			<OnDragStop>
 				self:StopMovingOrSizing()
 			</OnDragStop>
+			<OnDragStart>
+				self:StartMoving()
+			</OnDragStart>
 		</Scripts>
 	</Frame>
 </Ui>
